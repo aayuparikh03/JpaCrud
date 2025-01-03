@@ -1,17 +1,9 @@
 package com.example.restcontroller;
 
-import com.example.dto.UserErrorResponse;
 import com.example.entity.Users;
-import com.example.exception.UserNotFoundException;
 import com.example.service.UserService;
-import jakarta.annotation.PostConstruct;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 
