@@ -49,6 +49,16 @@ public class UserController {
         userService.deleteById(id);
         return "User with id:"+id+" is deleted";
     }
+    @GetMapping("/users/findAllByIds")
+    public List<Users> getUsersByIds(@RequestParam List<Integer> ids) {
+        return userService.findAllById(ids);
+    }
+    @DeleteMapping("/users/deleteByIds")
+    public String deleteUsersByIds(@RequestParam List<Integer> ids)
+    {
+         userService.deleteAllByIds(ids);
+         return "Users with Ids:" + ids+" are deleted";
+    }
 
 
 }

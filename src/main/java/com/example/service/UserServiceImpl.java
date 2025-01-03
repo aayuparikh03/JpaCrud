@@ -22,6 +22,25 @@ public class UserServiceImpl implements UserService{
     public List<Users> findAll() {
         return userRepository.findAll();
     }
+    @Override
+    public List<Users> findAllById(List<Integer> ids) {
+        List<Users> usersList = userRepository.findAllById(ids);
+        if (usersList.isEmpty()) {
+            throw new UserNotFoundException("No users found for the provided IDs: " + ids);
+        }
+        return usersList;
+    }
+
+    @Override
+    public void deleteAllByIds(List<Integer> ids) {
+       for(int id:ids)
+       {
+           if (userRepository.existsById(id))
+           {
+               userRepository.deleteById(id);
+           }
+       }
+    }
 
     @Override
     public Users findById(int id) {
@@ -64,5 +83,6 @@ public class UserServiceImpl implements UserService{
         Users matched=findById(id);
         userRepository.deleteById(id);
     }
+
 
 }

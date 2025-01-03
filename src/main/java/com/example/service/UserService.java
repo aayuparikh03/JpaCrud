@@ -10,5 +10,7 @@ public interface UserService {
     public Users save(Users users);
     public Users update(int id,Users users);
     public  void deleteById(int id);
+    public List<Users> findAllById(List<Integer> ids);
+    public void deleteAllByIds(List<Integer>ids);
 
 }
